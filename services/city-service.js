@@ -1,0 +1,3 @@
+const BASE="https://geocoding-api.open-meteo.com/v1/search";
+export async function resolveCities(name){const url=new URL(BASE);url.searchParams.set("name",name);url.searchParams.set("count","5");url.searchParams.set("language","pt");url.searchParams.set("format","json");const response=await fetch(url);if(!response.ok)throw new Error("Falha no serviço de localização");const data=await response.json();return (data.results||[]).map(x=>({id:x.id,name:x.name,admin1:x.admin1||"",country:x.country||"",latitude:x.latitude,longitude:x.longitude,timezone:x.timezone||"auto"}));}
+export async function resolveCity(name){const results=await resolveCities(name);return results[0]||null;}
