@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1220"><meta name="description" content="Consulte o clima atual e a previsão do tempo por cidade.">
+  <title>ClimaTempo — previsão do tempo</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><a class="brand" href="/" aria-label="ClimaTempo início"><span class="brand-mark">☀</span><span>clima<span class="brand-light">tempo</span></span></a><span class="top-note"><i class="live-dot"></i> Dados meteorológicos atualizados</span></header>
+    <main>
+      <section class="hero"><div class="eyebrow">PREVISÃO METEOROLÓGICA</div><h1>O clima da sua cidade,<br><span>em tempo real.</span></h1><p>Consulte as condições atuais e acompanhe a previsão para os próximos dias.</p>
+        <form id="search-form" class="search-box"><span class="search-icon">⌕</span><input id="city-input" type="search" placeholder="Digite o nome de uma cidade..." autocomplete="off" aria-label="Nome da cidade" required><button type="submit">Consultar <span>→</span></button></form><div id="search-message" class="search-message" role="status"></div>
+        <div class="quick-cities"><span>EXPERIMENTE:</span><button data-city="Salvador">Salvador</button><button data-city="São Paulo">São Paulo</button><button data-city="Rio de Janeiro">Rio de Janeiro</button><button data-city="Brasília">Brasília</button></div>
+      </section>
+      <section id="weather-section" class="weather-section" hidden aria-live="polite">
+        <div class="section-heading"><div><div class="eyebrow">CONDIÇÕES ATUAIS</div><h2 id="place-name">—</h2><p id="updated-at">—</p></div><div class="today-pill">Hoje</div></div>
+        <article class="current-card"><div class="current-main"><div id="weather-icon" class="weather-icon">☀️</div><div><div id="temperature" class="temperature">--°</div><div id="condition" class="condition">Carregando...</div><div id="feels-like" class="feels-like">Sensação térmica: --°</div></div></div><div class="current-details"><div class="detail"><span class="detail-icon">💧</span><div><small>Umidade</small><strong id="humidity">--%</strong></div></div><div class="detail"><span class="detail-icon">〰</span><div><small>Vento</small><strong id="wind">-- km/h</strong></div></div><div class="detail"><span class="detail-icon">🌧</span><div><small>Chuva hoje</small><strong id="rain">-- mm</strong></div></div></div></article>
+        <div class="forecast-heading"><div><div class="eyebrow">PRÓXIMOS DIAS</div><h2>Previsão de 7 dias</h2></div></div><div id="forecast" class="forecast-grid"></div>
+        <p class="attribution">Dados meteorológicos fornecidos por <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p>
+      </section>
+      <section id="empty-state" class="empty-state"><div class="empty-icon">🌤️</div><h2>Comece pesquisando uma cidade</h2><p>Você verá temperatura, umidade, velocidade do vento e a previsão para a semana.</p></section>
+    </main>
+    <footer>ClimaTempo <span>•</span> Projeto acadêmico de consulta meteorológica</footer>
+  </div><script src="/script.js" defer></script>
+</body></html>
