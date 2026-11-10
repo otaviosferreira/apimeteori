@@ -1,0 +1,2 @@
+const windows=new Map();const LIMIT=45;const WINDOW=60_000;
+export function allowRequest(req){const forwarded=req.headers["x-forwarded-for"];const ip=(Array.isArray(forwarded)?forwarded[0]:String(forwarded||"").split(",")[0]).trim()||"unknown";const now=Date.now();const record=windows.get(ip);if(!record||now-record.start>WINDOW){windows.set(ip,{start:now,count:1});return true;}record.count++;return record.count<=LIMIT;}
